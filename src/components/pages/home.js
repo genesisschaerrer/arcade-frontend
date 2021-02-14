@@ -27,7 +27,7 @@ class Home extends Component {
     renderGames = () => {
         return this.state.data.map(game => {
             return(
-                <Link to={`/${game._id}`} key={game._id}>
+                <Link to={`/games/${game._id}`} key={game._id}>
                     <div className="all-games-container">
                     <div className="game-name">{game.name}</div>
                     <img src={game.url} style={{"width": "400px", "height": "400px"}} alt="game image" />

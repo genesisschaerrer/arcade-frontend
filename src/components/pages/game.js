@@ -20,6 +20,8 @@ class Game extends Component {
         .then(res => this.setState({
             game: res.data
         }))
+        .catch(error => 
+            console.log("getGame error: ", error))
     }
 
     render(){
@@ -33,7 +35,7 @@ class Game extends Component {
         return(
            <div className="game-container">
                <div>{name}</div>
-               <iframe src={url} style={{"width": "1000px", "height": "1000px"}} />
+               <iframe src={url} style={{"width": "1000px", "height": "500px"}} />
                <div>{creator}</div>
            </div>
         )
