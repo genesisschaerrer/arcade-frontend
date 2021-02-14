@@ -28,7 +28,7 @@ class Home extends Component {
     renderGames = () => {
         return this.state.data.map(game => {
             return(
-                <div className="all-games-container" key={game._id}>
+                <div className="all-games-container" key={game._id} style={{"width": "400px", "height": "400px"}}>
                     <div className="name">{game.name}</div>
                     {/* <iframe src={game.url} style={{"width": "1000px", "height": "1000px"}} /> */}
                     <img src={game.url} style={{"width": "400px", "height": "400px"}} alt="game image" />

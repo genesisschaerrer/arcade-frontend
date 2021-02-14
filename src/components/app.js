@@ -3,7 +3,9 @@ import {BrowserRouter, Switch, Route} from "react-router-dom"
 import axios from "axios"
 
 import NavBar from "./navigation/nav-bar"
-import HOME from "./pages/home"
+import Home from "./pages/home"
+import Game from "./pages/game"
+import Login from "./pages/login"
 
 class App extends Component{
   constructor(props){
@@ -16,7 +18,9 @@ class App extends Component{
         <NavBar />
         <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={HOME} />
+          <Route exact path="/" component={Home} />
+          <Route path="/game/:id" component={Game} />
+          <Route path="/login" component={Login} />
         </Switch>
         </BrowserRouter>
       </div>
