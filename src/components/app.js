@@ -19,7 +19,7 @@ class App extends Component{
         <NavBar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/game/:id" component={Game} />
+          <Route path="/:id" component={Game} />
           <Route path="/login" component={Login} />
         </Switch>
         </BrowserRouter>

@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import {Link} from "react-router-dom"
 import axios from "axios"
 
 class Home extends Component {
@@ -11,7 +12,6 @@ class Home extends Component {
     }
 
     getGames = () => {
-        console.log("got here")
         axios.get("http://localhost:4000")
             .then(response =>  this.setState({
                 data: response.data
@@ -22,17 +22,17 @@ class Home extends Component {
 
     componentDidMount(){
         this.getGames()
-        console.log("got to component did mount")
     }
 
     renderGames = () => {
         return this.state.data.map(game => {
             return(
-                <div className="all-games-container" key={game._id}>
+                <Link to={`/${game._id}`} key={game._id}>
+                    <div className="all-games-container">
                     <div className="game-name">{game.name}</div>
-                    {/* <iframe src={game.url} style={{"width": "1000px", "height": "1000px"}} /> */}
                     <img src={game.url} style={{"width": "400px", "height": "400px"}} alt="game image" />
-                </div>
+                    </div>
+                </Link>
             )
         })
     }
