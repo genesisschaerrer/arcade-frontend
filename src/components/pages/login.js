@@ -17,13 +17,9 @@ class Login extends Component {
     }
 
     handleSubmit = e => {
-        console.log("got to handlesubmit")
         e.preventDefault()
         axios.post("http://localhost:4000/login", {username: this.state.username, password: this.state.password})
-            .then(res => 
-                console.log(res)
-                
-                )
+            .then(res =>  this.props.history.push("/admindashboard"))
             .catch(err => console.log("loging error: ", err))
     }
 
