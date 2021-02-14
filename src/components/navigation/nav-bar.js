@@ -1,15 +1,14 @@
 import React, {Component} from "react"
+import {NavLink} from "react-router-dom"
 
 import logo from "../../../static/assets/images/logo.png"
 
-class NavBar extends Component {
-   render () {
+const NavBar = () => {
     return (
         <div className="nav-container">
-            <img className="nav-bar-logo" src={logo} />
+            <NavLink exact to="/"><img className="nav-bar-logo" src={logo} /></NavLink>
         </div>
     )
-   }
 }
 
 export default NavBar
