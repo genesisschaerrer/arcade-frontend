@@ -2,8 +2,8 @@ import React, {Component} from "react"
 import axios from "axios"
 
 class AdminDashboard extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             name: "",
             url: "",
@@ -26,11 +26,18 @@ class AdminDashboard extends Component {
         this.getGames()
     }
 
+    handleDelete = (id) => {
+        axios.delete(`http://localhost:4000/delete/${id}`)
+            .then(() => this.getGames())
+            .catch(error => console.log("delete game error: ", error))
+    }
+
     gamesSideBar = () => {
         return this.state.data.map(game => {
             return (
                 <div key={game._id}>
                     <div>{game.name}</div>
+                    <div onClick={() => this.handleDelete(game._id)}>Delete</div>
                 </div>
             )
         })
@@ -58,6 +65,7 @@ class AdminDashboard extends Component {
                 url: "",
                 creator: "",
             }))
+            .then(()=> this.getGames())
             .catch(err => console.log (err))
     }
 
