@@ -34,8 +34,8 @@ class Game extends Component {
 
         return(
            <div className="game-container">
-               <div>{name}</div>
-               <iframe src={url} style={{"width": "1000px", "height": "500px"}} />
+               <div className="game-name">{name}</div>
+               <iframe className="iframe" src={url} />
                <div>{creator}</div>
            </div>
         )

@@ -1,0 +1,17 @@
+.game-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5em 2em;
+
+    .game-name{
+        @include title;
+        margin: 2em 0 1.4em;
+    }
+
+    .iframe{
+        width: 80vw;
+        height: 600px;
+        border: 8px #FFDE59 double;
+    }
+}

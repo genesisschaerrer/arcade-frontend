@@ -8,21 +8,14 @@
 
     .all-games-container{
         width: 600px;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
 
         .game-name{
-            font-family: 'Bungee Shade', cursive;
-            font-size: 3.7em;
-            color: #FFDE59;
-            line-height: .5;
-            border-bottom: 20px solid #F630C4;
-            padding: 0 .2em; 
-            // margin-bottom: -10px;
-
-        
+            @include title;
         }
     }
 }

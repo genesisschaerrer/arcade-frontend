@@ -1,5 +1,7 @@
 import React, {Component} from "react"
 import axios from "axios"
+// import FileInputComponent from 'react-file-input-previews-base64'
+import FileBase64 from 'react-file-base64'
 
 class AdminDashboard extends Component {
     constructor(props){
@@ -37,6 +39,7 @@ class AdminDashboard extends Component {
             return (
                 <div key={game._id}>
                     <div>{game.name}</div>
+                    <div>{game.image}</div>
                     <div onClick={() => this.handleDelete(game._id)}>Delete</div>
                 </div>
             )
@@ -56,9 +59,18 @@ class AdminDashboard extends Component {
         const {
             name,
             url,
+            image,
             creator
         } = this.state
-        axios.post("http://localhost:4000", {name, url, creator})
+        axios.post("http://localhost:4000", {name, url, creator, image})
+        // axios({
+        //     method: post,
+        //     url: "http://localhost:4000",
+        //     headers: {
+        //         "Access-Control-Allow-Origin": 
+        //     }
+
+        // })
             .then(() => 
             this.setState({
                 name: "",
@@ -68,6 +80,11 @@ class AdminDashboard extends Component {
             .then(()=> this.getGames())
             .catch(err => console.log (err))
     }
+
+    getFiles(files){
+        this.setState({ image: files.base64 })
+        console.log(this.state.image)
+      }
 
     render(){
         return(
@@ -96,6 +113,19 @@ class AdminDashboard extends Component {
                         value={this.state.creator}
                         onChange={this.handleChange}
                     />
+                    
+                    {/* <FileInputComponent
+                    labelText="Select file"
+                    labelStyle={{fontSize:14}}
+                    multiple={false}
+                    // callbackFunction={(file_arr)=>{console.log(file_arr)}}
+                    callbackFunction={this.getFiles.bind(this)}
+                    accept="image/*" 
+                    /> */}
+
+                    <FileBase64
+                    multiple={ false }
+                    onDone={ this.getFiles.bind(this) } />
 
                     <button type="submit">Submit</button>
                 </form>
