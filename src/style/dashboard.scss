@@ -1,0 +1,29 @@
+.dashboard-container{
+    display: flex;
+    height: 100vh;
+    width: 50%;
+    align-items: flex-start;
+    justify-content: space-around;
+    
+
+    .dashboard-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 300px;
+
+        .login-input{
+            padding: .4em .2em;
+        }
+    }
+
+    .all-games-container {
+        display: flex;
+        background-color: white;
+        color: black;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 2em;
+    }
+}

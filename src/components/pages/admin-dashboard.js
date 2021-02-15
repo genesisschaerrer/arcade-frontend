@@ -37,7 +37,7 @@ class AdminDashboard extends Component {
     gamesSideBar = () => {
         return this.state.data.map(game => {
             return (
-                <div key={game._id}>
+                <div className="all-games" key={game._id}>
                     <div>{game.name}</div>
                     <div>{game.image}</div>
                     <div onClick={() => this.handleDelete(game._id)}>Delete</div>
@@ -88,9 +88,10 @@ class AdminDashboard extends Component {
 
     render(){
         return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className="dashboard-container">
+                <form className="dashboard-form" onSubmit={this.handleSubmit}>
                     <input
+                        className="login-input"
                         type="text"
                         name="name"
                         placeholder="game name"
@@ -99,6 +100,7 @@ class AdminDashboard extends Component {
                     />
 
                     <input
+                        className="login-input"
                         type="text"
                         name="url"
                         placeholder="game url"
@@ -107,6 +109,7 @@ class AdminDashboard extends Component {
                     />
 
                     <input
+                        className="login-input"
                         type="text"
                         name="creator"
                         placeholder="game creator"
@@ -124,12 +127,16 @@ class AdminDashboard extends Component {
                     /> */}
 
                     <FileBase64
+                    className="login-input"
                     multiple={ false }
                     onDone={ this.getFiles.bind(this) } />
 
                     <button type="submit">Submit</button>
                 </form>
-                {this.gamesSideBar()}
+                
+                <div className="all-games-container">
+                    {this.gamesSideBar()}
+                </div>
             </div>
         )
     }
