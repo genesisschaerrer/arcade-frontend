@@ -31,6 +31,8 @@ class AdminDashboard extends Component {
             creator: "",
             data: []
         }
+
+        this.imageRef = React.createRef()
     }
 
 
@@ -70,7 +72,7 @@ class AdminDashboard extends Component {
     handleChange = (e) => {
         e.perventDefault
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value         
         })
     }
 
@@ -120,7 +122,7 @@ class AdminDashboard extends Component {
             image,
             creator
         } = this.state
-        axios.post("http://localhost:4000", {name, url, image, creator}, {withCredentials: true})
+        axios.post("https://dashboard.heroku.com/apps/arcade-node-api", {name, url, image, creator}, {withCredentials: true})
         // axios({
         //     method: post,
         //     url: "http://localhost:4000",
@@ -136,6 +138,7 @@ class AdminDashboard extends Component {
                 creator: "",
                 image: ""
             }))
+            .then(() =>  this.imageRef.current.dropzone.removeAllFiles())
             .then(()=> this.getGames())
             .catch(err => console.log (err))
     }
@@ -173,7 +176,7 @@ class AdminDashboard extends Component {
                     />
 
                         <DropzoneComponent 
-                        ref={this.featuredImageRef}
+                        ref={this.imageRef}
                         config={this.componentConfig()}
                         djsConfig={this.djsConfig()}
                         eventHandlers={this.handleDrop()}
