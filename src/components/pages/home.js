@@ -26,13 +26,14 @@ class Home extends Component {
 
     renderGames = () => {
         return this.state.data.map(game => {
-            return(
-                <Link to={`/games/${game._id}`} key={game._id}>
+            return(  
                     <div className="all-games-container">
+                    <Link className="link" to={`/games/${game._id}`} key={game._id}>
                     <div className="game-name">{game.name}</div>
-                    <img src={game.url} style={{"width": "400px", "height": "400px"}} alt="game image" />
+                    <img   className="img" src={game.image} style={{"width": "350px", "height": "350px"}} alt="game image" />           
+                    </Link>
                     </div>
-                </Link>
+                
             )
         })
     }

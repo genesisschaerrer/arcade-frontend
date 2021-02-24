@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import axios from "axios"
 
+
 class Login extends Component {
     constructor(props){
         super(props)
@@ -18,7 +19,7 @@ class Login extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        axios.post("http://localhost:4000/login", {username: this.state.username, password: this.state.password})
+        axios.post("http://localhost:4000/login", {username: this.state.username, password: this.state.password}, {withCredentials: true})
             .then(res =>  this.props.history.push("/admindashboard"))
             .catch(err => console.log("loging error: ", err))
     }

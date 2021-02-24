@@ -7,7 +7,6 @@ const NavBar = () => {
     return (
         <div className="nav-container">
             <NavLink exact to="/"><img className="nav-bar-logo" src={logo} /></NavLink>
-            <NavLink to="/login">Login</NavLink>
         </div>
     )
 }
