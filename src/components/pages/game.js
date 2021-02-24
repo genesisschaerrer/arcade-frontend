@@ -16,7 +16,7 @@ class Game extends Component {
     }
 
     getGame = () => {
-        axios.get(`http://localhost:4000/${this.props.match.params.id}`)
+        axios.get(`https://arcade-node-api.herokuapp.com/${this.props.match.params.id}`)
         .then(res => this.setState({
             game: res.data
         }))

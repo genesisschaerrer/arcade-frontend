@@ -19,7 +19,7 @@ class Login extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        axios.post("http://localhost:4000/login", {username: this.state.username, password: this.state.password}, {withCredentials: true})
+        axios.post("https://arcade-node-api.herokuapp.com/login", {username: this.state.username, password: this.state.password}, {withCredentials: true})
             .then(res =>  this.props.history.push("/admindashboard"))
             .catch(err => console.log("loging error: ", err))
     }
