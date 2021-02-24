@@ -35,7 +35,7 @@ class AdminDashboard extends Component {
 
 
     getGames = () => {
-        axios.get("http://localhost:4000")
+        axios.get("https://arcade-node-api.herokuapp.com/")
             .then(response =>  this.setState({
                 data: response.data
                 }))
@@ -48,7 +48,7 @@ class AdminDashboard extends Component {
     }
 
     handleDelete = (id) => {
-        axios.delete(`http://localhost:4000/delete/${id}`, {withCredentials: true})
+        axios.delete(`https://arcade-node-api.herokuapp.com/delete/${id}`, {withCredentials: true})
             .then(() => this.getGames())
             .catch(error => console.log("delete game error: ", error))
     }

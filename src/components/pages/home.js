@@ -12,7 +12,7 @@ class Home extends Component {
     }
 
     getGames = () => {
-        axios.get("http://localhost:4000")
+        axios.get("https://arcade-node-api.herokuapp.com/")
             .then(response =>  this.setState({
                 data: response.data
                 }))
