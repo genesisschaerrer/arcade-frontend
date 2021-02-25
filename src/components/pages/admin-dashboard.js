@@ -84,7 +84,7 @@ class AdminDashboard extends Component {
 
     componentConfig = () => {
         return {
-            inconFiletypes: [".jpg", ".png"],
+            iconFiletypes: [".jpg", ".png"],
             showFiletypeIcon: true,
             postUrl: "https://httpbin.org/post"
         }
@@ -122,7 +122,11 @@ class AdminDashboard extends Component {
             image,
             creator
         } = this.state
-        axios.post("https://dashboard.heroku.com/apps/arcade-node-api", {name, url, image, creator}, {withCredentials: true})
+        axios.post("https://dashboard.heroku.com/apps/arcade-node-api", {name, url, image, creator}, {withCredentials: true}, {
+            headers: {
+                "Access-Control-Allow-Origin": "https://arcade-client.herokuapp.com/"
+            }
+        })
         // axios({
         //     method: POST,
         //     url: "http://localhost:4000",
