@@ -124,11 +124,12 @@ class AdminDashboard extends Component {
         } = this.state
         axios.post("https://dashboard.heroku.com/apps/arcade-node-api", {name, url, image, creator}, {withCredentials: true})
         // axios({
-        //     method: post,
+        //     method: POST,
         //     url: "http://localhost:4000",
         //     headers: {
-        //         "Access-Control-Allow-Origin": 
-        //     }
+        //         "Access-Control-Allow-Origin": true,
+        //     },
+        //     withCredentials: true,
 
         // })
             .then(() => 
